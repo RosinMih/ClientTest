@@ -1,111 +1,96 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
 
 
 namespace ClientTest
 {
-    public partial class Form1 : Form
+    public partial class FormClient : Form
     {
- 
-        void Send ()
-        {
-            try
-            {
-                IPEndPoint ipPoint = new IPEndPoint(IPAddress.Parse(IP.Text), Convert.ToInt32(Port.Text));
-                Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                socket.Connect(ipPoint);	// подключаемся к удаленному хосту
-                string message = TextSend.Text;
-                byte[] data = Encoding.UTF8.GetBytes(message);
-                socket.Send(data);			//Отправляем сообщение
-
-                // получаем ответ
-                byte[] data2 = new byte[10000]; // буфер для ответа
-                StringBuilder builder = new StringBuilder();
-                int bytes = 0; // количество полученных байт
-                do
-                {
-                    bytes = socket.Receive(data2, data2.Length, 0);
-                    builder.Append(Encoding.UTF8.GetString(data2, 0, bytes));
-                }
-                while (socket.Available > 0);
-                //MessageBox.Show("ответ сервера: " + builder.ToString());
-                textBox4.Text = textBox4.Text + "Ответ сервера: " + builder.ToString() + "\r\n";
-                // закрываем сокет
-                socket.Shutdown(SocketShutdown.Both);
-                socket.Close();
-            }
-            catch (Exception ex)
-            {
-                //Console.WriteLine(ex.Message);
-                button1.BackColor = Color.FromArgb(200, 200, 200, 200);
-                textBox4.Text = textBox4.Text + ex.Message + "\r\n";
-                //MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        public Form1()
+        public FormClient()
         {
             InitializeComponent();
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void Button_Start_Click(object sender, EventArgs e)
         {
-           button1.BackColor = Color.Red;
+           Button_Start.BackColor = Color.Red;
 
-            if (!IPAddress.TryParse(IP.Text, out IPAddress address))     // Определяем является ли строка ip-адресом
+            if (!IPAddress.TryParse(SET_IP_Adress_Server.Text, out IPAddress address))  
             {
-                button1.BackColor = Color.FromArgb(200, 200, 200, 200);
-                textBox4.Text = textBox4.Text + "Ошибочно введен IP адрес \r\n";
+                Button_Start.BackColor = Color.FromArgb(200, 200, 200, 200);
+                TextBox_IncomigMessages.Text = TextBox_IncomigMessages.Text + "Ошибочно введен IP адрес \r\n";
                 return;
             }
 
                 try
                 {
-                    // Проверяем, корректно ли введен порт
-                    int Prt = Convert.ToInt32(Port.Text);
+                    int Checking_for_a_Port = Convert.ToInt32(SET_Port_Server.Text);
                 }
                 catch
                 {
-                    button1.BackColor = Color.FromArgb(200, 200, 200, 200);
-                    textBox4.Text = textBox4.Text + "Ошибочно введен номер порта \r\n";
+                    Button_Start.BackColor = Color.FromArgb(200, 200, 200, 200);
+                    TextBox_IncomigMessages.Text = TextBox_IncomigMessages.Text + "Ошибочно введен номер порта \r\n";
                     return;
                 }
-
-            
          }
 
-            private void button2_Click(object sender, EventArgs e)
+        private void Button_Stop_Click(object sender, EventArgs e)
         {
-            button1.BackColor = Color.FromArgb(200, 200, 200, 200);
+            Button_Start.BackColor = Color.FromArgb(200, 200, 200, 200);
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer_Sending_a_message_Tick(object sender, EventArgs e)
         {
-            if (button1.BackColor == Color.Red)
+            if (Button_Start.BackColor == Color.Red)
             {
-                Send();
+                Sending_a_message();
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button_Clear_Click(object sender, EventArgs e)
         {
-            textBox4.Clear();
+            TextBox_IncomigMessages.Clear();
         }
 
-        private void Form1_SizeChanged(object sender, EventArgs e)
+        private void FormClient_SizeChanged(object sender, EventArgs e)
         {
-            textBox4.Height = this.Height - 230;
+            TextBox_IncomigMessages.Height = this.Height - 230;
         }
+
+        //Method of sending a message to the server and receiving a response
+        void Sending_a_message()
+        {
+            try
+            {
+                IPEndPoint ipPointServer = new IPEndPoint(IPAddress.Parse(SET_IP_Adress_Server.Text), Convert.ToInt32(SET_Port_Server.Text));
+                Socket Socket_Server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                Socket_Server.Connect(ipPointServer);	
+                string Sending_a_message = MessageText.Text;
+                byte[] message_by_bytes = Encoding.UTF8.GetBytes(Sending_a_message);
+                Socket_Server.Send(message_by_bytes);
+                byte[] buffer_for_receiving = new byte[10000];
+                StringBuilder answer_builder = new StringBuilder();
+                int bytes = 0; 
+                do
+                {
+                    bytes = Socket_Server.Receive(buffer_for_receiving, buffer_for_receiving.Length, 0);
+                    answer_builder.Append(Encoding.UTF8.GetString(buffer_for_receiving, 0, bytes));
+                }
+                while (Socket_Server.Available > 0);
+                TextBox_IncomigMessages.Text = TextBox_IncomigMessages.Text + "Ответ сервера: " + answer_builder.ToString() + "\r\n";
+                Socket_Server.Shutdown(SocketShutdown.Both);
+                Socket_Server.Close();
+            }
+            catch (Exception ex)
+            {
+                Button_Start.BackColor = Color.FromArgb(200, 200, 200, 200);
+                TextBox_IncomigMessages.Text = TextBox_IncomigMessages.Text + ex.Message + "\r\n";
+            }
+
+        }
+
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace ClientTest
 {
-    partial class Form1
+    partial class FormClient
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -30,141 +30,142 @@ namespace ClientTest
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.IP = new System.Windows.Forms.TextBox();
-            this.Port = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.TextSend = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button3 = new System.Windows.Forms.Button();
+            this.Label_description = new System.Windows.Forms.Label();
+            this.Label_IP_Adress = new System.Windows.Forms.Label();
+            this.Label_Port = new System.Windows.Forms.Label();
+            this.SET_IP_Adress_Server = new System.Windows.Forms.TextBox();
+            this.SET_Port_Server = new System.Windows.Forms.TextBox();
+            this.Label_message = new System.Windows.Forms.Label();
+            this.MessageText = new System.Windows.Forms.TextBox();
+            this.Button_Start = new System.Windows.Forms.Button();
+            this.TextBox_IncomigMessages = new System.Windows.Forms.TextBox();
+            this.Button_Stop = new System.Windows.Forms.Button();
+            this.Timer_Sending_a_message = new System.Windows.Forms.Timer(this.components);
+            this.Button_Clear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // Label_description
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(416, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Клиентская часть программы тестирования прохождения TCP сетевых пакетов";
+            this.Label_description.AutoSize = true;
+            this.Label_description.Location = new System.Drawing.Point(12, 9);
+            this.Label_description.Name = "Label_description";
+            this.Label_description.Size = new System.Drawing.Size(416, 13);
+            this.Label_description.TabIndex = 0;
+            this.Label_description.Text = "Клиентская часть программы тестирования прохождения TCP сетевых пакетов";
             // 
-            // label2
+            // Label_IP_Adress
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "IP v4 адрес сервера";
+            this.Label_IP_Adress.AutoSize = true;
+            this.Label_IP_Adress.Location = new System.Drawing.Point(12, 36);
+            this.Label_IP_Adress.Name = "Label_IP_Adress";
+            this.Label_IP_Adress.Size = new System.Drawing.Size(110, 13);
+            this.Label_IP_Adress.TabIndex = 1;
+            this.Label_IP_Adress.Text = "IP v4 адрес сервера";
             // 
-            // label3
+            // Label_Port
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(260, 36);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Порт сервера";
+            this.Label_Port.AutoSize = true;
+            this.Label_Port.Location = new System.Drawing.Point(260, 36);
+            this.Label_Port.Name = "Label_Port";
+            this.Label_Port.Size = new System.Drawing.Size(77, 13);
+            this.Label_Port.TabIndex = 2;
+            this.Label_Port.Text = "Порт сервера";
             // 
-            // IP
+            // SET_IP_Adress_Server
             // 
-            this.IP.Location = new System.Drawing.Point(128, 33);
-            this.IP.Name = "IP";
-            this.IP.Size = new System.Drawing.Size(126, 20);
-            this.IP.TabIndex = 3;
+            this.SET_IP_Adress_Server.Location = new System.Drawing.Point(128, 33);
+            this.SET_IP_Adress_Server.Name = "SET_IP_Adress_Server";
+            this.SET_IP_Adress_Server.Size = new System.Drawing.Size(126, 20);
+            this.SET_IP_Adress_Server.TabIndex = 3;
             // 
-            // Port
+            // SET_Port_Server
             // 
-            this.Port.Location = new System.Drawing.Point(357, 33);
-            this.Port.Name = "Port";
-            this.Port.Size = new System.Drawing.Size(61, 20);
-            this.Port.TabIndex = 4;
+            this.SET_Port_Server.Location = new System.Drawing.Point(357, 33);
+            this.SET_Port_Server.Name = "SET_Port_Server";
+            this.SET_Port_Server.Size = new System.Drawing.Size(61, 20);
+            this.SET_Port_Server.TabIndex = 4;
             // 
-            // label4
+            // Label_message
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 64);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Соббщение";
+            this.Label_message.AutoSize = true;
+            this.Label_message.Location = new System.Drawing.Point(12, 64);
+            this.Label_message.Name = "Label_message";
+            this.Label_message.Size = new System.Drawing.Size(65, 13);
+            this.Label_message.TabIndex = 7;
+            this.Label_message.Text = "Соббщение";
             // 
-            // TextSend
+            // MessageText
             // 
-            this.TextSend.Location = new System.Drawing.Point(113, 64);
-            this.TextSend.Name = "TextSend";
-            this.TextSend.Size = new System.Drawing.Size(305, 20);
-            this.TextSend.TabIndex = 8;
-            this.TextSend.Text = "      test";
+            this.MessageText.Location = new System.Drawing.Point(113, 64);
+            this.MessageText.Name = "MessageText";
+            this.MessageText.Size = new System.Drawing.Size(305, 20);
+            this.MessageText.TabIndex = 8;
+            this.MessageText.Text = "      test";
             // 
-            // button1
+            // Button_Start
             // 
-            this.button1.Location = new System.Drawing.Point(15, 99);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Старт";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Button_Start.Location = new System.Drawing.Point(15, 99);
+            this.Button_Start.Name = "Button_Start";
+            this.Button_Start.Size = new System.Drawing.Size(169, 23);
+            this.Button_Start.TabIndex = 9;
+            this.Button_Start.Text = "Старт";
+            this.Button_Start.UseVisualStyleBackColor = true;
+            this.Button_Start.Click += new System.EventHandler(this.Button_Start_Click);
             // 
-            // textBox4
+            // TextBox_IncomigMessages
             // 
-            this.textBox4.Location = new System.Drawing.Point(15, 166);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox4.Size = new System.Drawing.Size(403, 142);
-            this.textBox4.TabIndex = 10;
+            this.TextBox_IncomigMessages.Location = new System.Drawing.Point(15, 166);
+            this.TextBox_IncomigMessages.Multiline = true;
+            this.TextBox_IncomigMessages.Name = "TextBox_IncomigMessages";
+            this.TextBox_IncomigMessages.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TextBox_IncomigMessages.Size = new System.Drawing.Size(403, 142);
+            this.TextBox_IncomigMessages.TabIndex = 10;
             // 
-            // button2
+            // Button_Stop
             // 
-            this.button2.Location = new System.Drawing.Point(236, 99);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(182, 23);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Стоп";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Button_Stop.Location = new System.Drawing.Point(236, 99);
+            this.Button_Stop.Name = "Button_Stop";
+            this.Button_Stop.Size = new System.Drawing.Size(182, 23);
+            this.Button_Stop.TabIndex = 11;
+            this.Button_Stop.Text = "Стоп";
+            this.Button_Stop.UseVisualStyleBackColor = true;
+            this.Button_Stop.Click += new System.EventHandler(this.Button_Stop_Click);
             // 
-            // timer1
+            // Timer_Sending_a_message
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.Timer_Sending_a_message.Enabled = true;
+            this.Timer_Sending_a_message.Interval = 1000;
+            this.Timer_Sending_a_message.Tick += new System.EventHandler(this.Timer_Sending_a_message_Tick);
             // 
-            // button3
+            // Button_Clear
             // 
-            this.button3.Location = new System.Drawing.Point(304, 137);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(114, 23);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Очистить";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Button_Clear.Location = new System.Drawing.Point(304, 137);
+            this.Button_Clear.Name = "Button_Clear";
+            this.Button_Clear.Size = new System.Drawing.Size(114, 23);
+            this.Button_Clear.TabIndex = 12;
+            this.Button_Clear.Text = "Очистить";
+            this.Button_Clear.UseVisualStyleBackColor = true;
+            this.Button_Clear.Click += new System.EventHandler(this.Button_Clear_Click);
             // 
-            // Form1
+            // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(439, 333);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.TextSend);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.Port);
-            this.Controls.Add(this.IP);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
+            this.Controls.Add(this.Button_Clear);
+            this.Controls.Add(this.Button_Stop);
+            this.Controls.Add(this.TextBox_IncomigMessages);
+            this.Controls.Add(this.Button_Start);
+            this.Controls.Add(this.MessageText);
+            this.Controls.Add(this.Label_message);
+            this.Controls.Add(this.SET_Port_Server);
+            this.Controls.Add(this.SET_IP_Adress_Server);
+            this.Controls.Add(this.Label_Port);
+            this.Controls.Add(this.Label_IP_Adress);
+            this.Controls.Add(this.Label_description);
+            this.Name = "FormClient";
+            this.Text = "Client";
+            this.SizeChanged += new System.EventHandler(this.FormClient_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,18 +173,18 @@ namespace ClientTest
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox IP;
-        private System.Windows.Forms.TextBox Port;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox TextSend;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label Label_description;
+        private System.Windows.Forms.Label Label_IP_Adress;
+        private System.Windows.Forms.Label Label_Port;
+        private System.Windows.Forms.TextBox SET_IP_Adress_Server;
+        private System.Windows.Forms.TextBox SET_Port_Server;
+        private System.Windows.Forms.Label Label_message;
+        private System.Windows.Forms.TextBox MessageText;
+        private System.Windows.Forms.Button Button_Start;
+        private System.Windows.Forms.TextBox TextBox_IncomigMessages;
+        private System.Windows.Forms.Button Button_Stop;
+        private System.Windows.Forms.Timer Timer_Sending_a_message;
+        private System.Windows.Forms.Button Button_Clear;
     }
 }
 

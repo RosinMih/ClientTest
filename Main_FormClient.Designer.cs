@@ -1,7 +1,7 @@
 ﻿
 namespace ClientTest
 {
-    partial class FormClient
+    partial class Main_FormClient
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -147,7 +147,7 @@ namespace ClientTest
             this.Button_Clear.UseVisualStyleBackColor = true;
             this.Button_Clear.Click += new System.EventHandler(this.Button_Clear_Click);
             // 
-            // FormClient
+            // Main_FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -163,7 +163,7 @@ namespace ClientTest
             this.Controls.Add(this.Label_Port);
             this.Controls.Add(this.Label_IP_Adress);
             this.Controls.Add(this.Label_description);
-            this.Name = "FormClient";
+            this.Name = "Main_FormClient";
             this.Text = "Client";
             this.SizeChanged += new System.EventHandler(this.FormClient_SizeChanged);
             this.ResumeLayout(false);
@@ -180,11 +180,11 @@ namespace ClientTest
         private System.Windows.Forms.TextBox SET_Port_Server;
         private System.Windows.Forms.Label Label_message;
         private System.Windows.Forms.TextBox MessageText;
-        private System.Windows.Forms.Button Button_Start;
         private System.Windows.Forms.TextBox TextBox_IncomigMessages;
         private System.Windows.Forms.Button Button_Stop;
         private System.Windows.Forms.Timer Timer_Sending_a_message;
         private System.Windows.Forms.Button Button_Clear;
+        public System.Windows.Forms.Button Button_Start;
     }
 }
 
